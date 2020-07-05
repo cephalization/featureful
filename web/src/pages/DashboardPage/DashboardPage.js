@@ -1,9 +1,12 @@
+import PrimaryLayout from 'src/layouts/PrimaryLayout/PrimaryLayout'
+
 const DashboardPage = () => {
   return (
-    <div>
-      <h1>DashboardPage</h1>
-      <p>Find me in ./web/src/pages/DashboardPage/DashboardPage.js</p>
-    </div>
+    <PrimaryLayout pageTitle="Dashboard">
+      <div className="py-4">
+        <div className="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+      </div>
+    </PrimaryLayout>
   )
 }
 
