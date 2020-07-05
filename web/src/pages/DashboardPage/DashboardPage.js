@@ -1,6 +1,12 @@
+import { useAuth } from '@redwoodjs/auth'
+
 import PrimaryLayout from 'src/layouts/PrimaryLayout/PrimaryLayout'
 
 const DashboardPage = () => {
+  const { currentUser } = useAuth()
+
+  console.log({ currentUser })
+
   return (
     <PrimaryLayout pageTitle="Dashboard">
       <div className="py-4">

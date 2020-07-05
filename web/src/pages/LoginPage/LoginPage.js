@@ -1,10 +1,14 @@
 import { navigate, routes } from '@redwoodjs/router'
-
-const loginStub = () => {
-  navigate(routes.dashboard())
-}
+import { useAuth } from '@redwoodjs/auth'
 
 const LoginPage = () => {
+  const { logIn } = useAuth()
+
+  const handleLogin = () => {
+    logIn()
+    navigate(routes.dashboard())
+  }
+
   return (
     <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -32,7 +36,7 @@ const LoginPage = () => {
                 <span className="w-full inline-flex rounded-md shadow-sm">
                   <button
                     type="button"
-                    onClick={loginStub}
+                    onClick={handleLogin}
                     className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
                   >
                     Login
