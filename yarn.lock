@@ -1519,6 +1519,11 @@
     lodash.omitby "^4.6.0"
     merge-graphql-schemas "^1.7.6"
 
+"@redwoodjs/auth@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.12.0.tgz#274b92c444e7ff1c064136579f0c8ac1d90efdcf"
+  integrity sha512-ECGhPKpywmsqieXDuDmuPichiEeN5t1Z3Ji7Xe0/xkTrH3HfWKVY3/DRY2lA8ctOXPm/sORr4szH7M/c+kFfbQ==
+
 "@redwoodjs/cli@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/cli/-/cli-0.12.0.tgz#be097b9a16344b0d9bcd958ffdc7a84e35ae5d14"
@@ -8394,6 +8399,11 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+netlify-identity-widget@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.7.0.tgz#0a79ec28a3707f37a3cdd18f4b9a9ce40dc764ad"
+  integrity sha512-oOHQJvzkz5cC14Pzm1xV0oL2LSNE5V2B3K6nyMSGhIrpCGKQqvA12KPIZguP3HgMcEqq1G8qn+qSbdBnUKEoKg==
 
 netlify-plugin-prisma-provider@^0.3.0:
   version "0.3.0"
