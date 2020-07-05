@@ -1,12 +1,16 @@
-import { navigate, routes } from '@redwoodjs/router'
+import { navigate, routes, Redirect } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 const LoginPage = () => {
-  const { logIn } = useAuth()
+  const { logIn, isAuthenticated } = useAuth()
 
   const handleLogin = () => {
     logIn()
     navigate(routes.dashboard())
+  }
+
+  if (isAuthenticated) {
+    return <Redirect to={routes.dashboard()} />
   }
 
   return (
