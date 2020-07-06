@@ -7,8 +7,22 @@
 
 import { AuthenticationError } from '@redwoodjs/api'
 
+import { createUser, getUserByEmail } from 'src/services/users/users'
+
+const getUserDetails = (jwt) => ({
+  // Assumes github auth token at the moment
+  name: jwt?.user_metadata?.full_name,
+  profileURL: jwt?.user_metadata?.avatar_url,
+  email: jwt?.email,
+})
+
 export const getCurrentUser = async (jwt) => {
-  return jwt
+  const { name, profileURL, email } = getUserDetails(jwt)
+
+  const user =
+    (await getUserByEmail(email)) || (await createUser(name, email, profileURL))
+
+  return user
 }
 
 // Use this function in your services to check that a user is logged in, and

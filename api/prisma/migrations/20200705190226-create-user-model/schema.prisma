@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -11,8 +11,7 @@ generator client {
 // Define your own datamodels here and run `yarn redwood db save` to create
 // migrations for them.
 model User {
-  id         Int     @id @default(autoincrement())
-  email      String  @unique
-  name       String?
-  profileURL String?
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
 }
