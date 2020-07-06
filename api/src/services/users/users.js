@@ -7,6 +7,5 @@ export const getUserByEmail = async (email) =>
     where: { email },
   })
 
-export const createUser = async (name, email, profileURL) => {
-  return await db.user.create({ data: { name, email, profileURL } })
-}
+export const createUser = async (name, email, profileURL) =>
+  await db.user.create({ data: { name, email, profileURL } })

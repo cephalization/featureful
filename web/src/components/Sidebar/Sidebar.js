@@ -10,7 +10,7 @@ const Sidebar = ({ items, open, toggleSidebar = () => {} }) => {
     : null
 
   const Title = () => (
-    <h2 className="ext-2xl font-semibold text-white">Features</h2>
+    <h2 className="ext-2xl font-semibold text-white">Featureful</h2>
   )
 
   return (
