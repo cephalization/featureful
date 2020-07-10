@@ -20,7 +20,11 @@ const PrimaryLayout = ({
         <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
       )}
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <Navbar hideSearch={hideSearch} toggleSidebar={toggleSidebar} />
+        <Navbar
+          hideSidebar={hideSidebar}
+          hideSearch={hideSearch}
+          toggleSidebar={toggleSidebar}
+        />
         <main
           className="flex-1 relative z-0 overflow-y-auto focus:outline-none"
           tabIndex="0"

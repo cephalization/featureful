@@ -1,28 +1,34 @@
 import PropTypes from 'prop-types'
 import UserAvatar from 'src/components/UserAvatar'
 
-const Navbar = ({ toggleSidebar = () => {}, hideSearch = false }) => {
+const Navbar = ({
+  toggleSidebar = () => {},
+  hideSearch = false,
+  hideSidebar = false,
+}) => {
   return (
     <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
-      <button
-        onClick={toggleSidebar}
-        className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
-        aria-label="Open sidebar"
-      >
-        <svg
-          className="h-6 w-6"
-          stroke="currentColor"
-          fill="none"
-          viewBox="0 0 24 24"
+      {!hideSidebar && (
+        <button
+          onClick={toggleSidebar}
+          className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
+          aria-label="Open sidebar"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16M4 18h7"
-          />
-        </svg>
-      </button>
+          <svg
+            className="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h7"
+            />
+          </svg>
+        </button>
+      )}
       <div className="flex-1 px-4 flex justify-between">
         <div className="flex-1 flex">
           <div className="w-full flex md:ml-0">
@@ -67,6 +73,7 @@ const Navbar = ({ toggleSidebar = () => {}, hideSearch = false }) => {
 Navbar.propTypes = {
   toggleSidebar: PropTypes.func,
   hideSearch: PropTypes.bool,
+  hideSidebar: PropTypes.bool,
 }
 
 export default Navbar
