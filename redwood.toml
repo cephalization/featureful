@@ -10,7 +10,7 @@
 [web]
   port = 8910
   apiProxyPath = "/.netlify/functions"
-  includeEnvironmentVariables = ['GITHUB_CLIENT_ID']
+  includeEnvironmentVariables = ['GITHUB_CLIENT_ID', 'GITHUB_REDIRECT_URI', 'NODE_ENV']
 
 [api]
   port = 8911

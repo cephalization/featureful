@@ -1,9 +1,9 @@
-const { GITHUB_CLIENT_ID } = process.env
-
+const isDevelopment = process.env.NODE_ENV === 'development'
 const params = [
-  ['client_id', GITHUB_CLIENT_ID],
+  ['client_id', process.env.GITHUB_CLIENT_ID],
   ['scope', 'user repo read:org'],
   ['state', 'unguessablerandomstring'],
+  ...(isDevelopment ? [['redirect_uri', process.env.GITHUB_REDIRECT_URI]] : []),
 ]
 
 export const createGithubAuthorizationURL = () => {
