@@ -15,6 +15,11 @@ const Routes = () => {
       <Route path="/" page={RedirectPage} name="redirect" />
       <Private unauthenticated="login">
         <Route path="/dashboard" page={DashboardPage} name="dashboard" />
+        <Route
+          path="/authorization"
+          page={AuthorizationPage}
+          name="authorization"
+        />
       </Private>
       <Route path="/login" page={LoginPage} name="login" />
       <Route notfound page={NotFoundPage} />

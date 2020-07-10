@@ -1,18 +1,26 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import Navbar from 'src/components/Navbar/Navbar'
 import Sidebar from 'src/components/Sidebar/Sidebar'
 
-const PrimaryLayout = ({ children, pageTitle }) => {
+const PrimaryLayout = ({
+  children,
+  pageTitle,
+  hideSidebar = false,
+  hideSearch = false,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const toggleSidebar = () => setSidebarOpen((o) => !o)
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
-      <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
+      {!hideSidebar && (
+        <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
+      )}
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <Navbar toggleSidebar={toggleSidebar} />
+        <Navbar hideSearch={hideSearch} toggleSidebar={toggleSidebar} />
         <main
           className="flex-1 relative z-0 overflow-y-auto focus:outline-none"
           tabIndex="0"
@@ -31,6 +39,13 @@ const PrimaryLayout = ({ children, pageTitle }) => {
       </div>
     </div>
   )
+}
+
+PrimaryLayout.propTypes = {
+  children: PropTypes.node,
+  pageTitle: PropTypes.string,
+  hideSidebar: PropTypes.bool,
+  hideSearch: PropTypes.bool,
 }
 
 export default PrimaryLayout
