@@ -6,7 +6,6 @@ import {
 import importAll from '@redwoodjs/api/importAll.macro'
 
 import { getCurrentUser } from 'src/lib/auth.js'
-
 import { db } from 'src/lib/db'
 
 const schemas = importAll('api', 'graphql')

@@ -7,12 +7,12 @@
 
 import { AuthenticationError } from '@redwoodjs/api'
 
-import { createUser, getUserByEmail } from 'src/services/users/users'
+import { createUser, userByEmail } from 'src/services/users/users'
 
 const getUserDetails = (jwt) => ({
   // Assumes github auth token at the moment
-  name: jwt?.user_metadata?.full_name,
-  profileURL: jwt?.user_metadata?.avatar_url,
+  name: jwt?.user_metadata?.full_name || 'User',
+  profileURL: jwt?.user_metadata?.avatar_url || '',
   email: jwt?.email,
 })
 
@@ -20,7 +20,8 @@ export const getCurrentUser = async (jwt) => {
   const { name, profileURL, email } = getUserDetails(jwt)
 
   const user =
-    (await getUserByEmail(email)) || (await createUser(name, email, profileURL))
+    (await userByEmail({ email })) ||
+    (await createUser({ input: { name, email, profileURL } }))
 
   return user
 }

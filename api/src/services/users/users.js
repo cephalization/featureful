@@ -10,10 +10,11 @@ export const user = ({ id }) => {
   })
 }
 
-export const userByEmail = async (email) =>
-  await db.user.findOne({
+export const userByEmail = ({ email }) => {
+  return db.user.findOne({
     where: { email },
   })
+}
 
 export const createUser = ({ input }) => {
   return db.user.create({
