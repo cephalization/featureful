@@ -1,6 +1,9 @@
 import PrimaryLayout from 'src/layouts/PrimaryLayout/PrimaryLayout'
+import { useRequiresGit, github } from 'src/hooks/useRequiresGithub'
 
 const DashboardPage = () => {
+  useRequiresGit(github)
+
   return (
     <PrimaryLayout pageTitle="Dashboard">
       <div className="py-4">
