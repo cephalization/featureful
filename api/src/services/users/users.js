@@ -1,11 +1,35 @@
 import { db } from 'src/lib/db'
 
-export const users = async () => await db.user.findMany()
+export const users = () => {
+  return db.user.findMany()
+}
 
-export const getUserByEmail = async (email) =>
+export const user = ({ id }) => {
+  return db.user.findOne({
+    where: { id },
+  })
+}
+
+export const userByEmail = async (email) =>
   await db.user.findOne({
     where: { email },
   })
 
-export const createUser = async (name, email, profileURL) =>
-  await db.user.create({ data: { name, email, profileURL } })
+export const createUser = ({ input }) => {
+  return db.user.create({
+    data: input,
+  })
+}
+
+export const updateUser = ({ id, input }) => {
+  return db.user.update({
+    data: input,
+    where: { id },
+  })
+}
+
+export const deleteUser = ({ id }) => {
+  return db.user.delete({
+    where: { id },
+  })
+}
