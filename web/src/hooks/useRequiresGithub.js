@@ -22,5 +22,5 @@ export const useRequiresGit = (accessType) => {
   const currentAccess = currentUser?.[accessTable?.[accessType]]
   if (!currentAccess || !currentAccess?.length) return goToAuthorization()
 
-  return
+  return true
 }

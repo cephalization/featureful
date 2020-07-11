@@ -2,7 +2,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const params = [
   ['client_id', process.env.GITHUB_CLIENT_ID],
   ['scope', 'user repo read:org'],
-  ['state', 'unguessablerandomstring'],
+  // ['state', 'unguessablerandomstring'],
   ...(isDevelopment ? [['redirect_uri', process.env.GITHUB_REDIRECT_URI]] : []),
 ]
 

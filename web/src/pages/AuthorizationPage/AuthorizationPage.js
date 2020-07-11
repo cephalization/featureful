@@ -1,7 +1,14 @@
+import { Redirect, routes } from '@redwoodjs/router'
+
 import PrimaryLayout from 'src/layouts/PrimaryLayout/PrimaryLayout'
 import { githubAuthorizationURL } from 'src/ExternalRoutes'
+import { useRequiresGit } from 'src/hooks/useRequiresGithub'
 
 const AuthorizationPage = () => {
+  const hasGithubToken = useRequiresGit('github')
+
+  if (hasGithubToken) return <Redirect to={routes.dashboard()} />
+
   return (
     <PrimaryLayout hideSidebar hideSearch>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">

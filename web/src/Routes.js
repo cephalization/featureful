@@ -20,6 +20,11 @@ const Routes = () => {
           page={AuthorizationPage}
           name="authorization"
         />
+        <Route
+          path="/callback/github"
+          page={GithubcallbackPage}
+          name="githubcallback"
+        />
       </Private>
       <Route path="/login" page={LoginPage} name="login" />
       <Route notfound page={NotFoundPage} />
