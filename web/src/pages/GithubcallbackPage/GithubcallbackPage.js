@@ -32,7 +32,6 @@ const GithubcallbackPage = () => {
       setFetched(true)
       getAccessToken(code, id)
     }
-    console.log('will not fetch')
   }, [code, fetched, setFetched, id])
 
   return null
