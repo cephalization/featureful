@@ -10,7 +10,10 @@ export const handler = async (event, context) => {
   const body = JSON.parse(event.body) || {}
 
   if (!body.code || !body.userId) {
-    return { statusCode: 400, body: { error: 'Invalid request payload' } }
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid request payload' }),
+    }
   }
 
   const params = [
@@ -36,7 +39,7 @@ export const handler = async (event, context) => {
   if (!response.body.access_token) {
     return {
       statusCode: 400,
-      body: response.body,
+      body: JSON.stringify(response.body),
     }
   }
 
@@ -47,6 +50,6 @@ export const handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: { ok: true },
+    body: JSON.stringify({ ok: true }),
   }
 }
