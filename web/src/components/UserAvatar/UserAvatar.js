@@ -6,6 +6,8 @@ const UserAvatar = () => {
   const { currentUser, logOut } = useAuth()
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false)
 
+  if (!currentUser) return null
+
   const profilePictureURL = currentUser.profileURL
 
   const toggleProfileDropdown = () => setProfileDropdownOpen((o) => !o)
